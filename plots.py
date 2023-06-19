@@ -1,0 +1,48 @@
+import pandas as p
+import matplotlib.pyplot as pt
+import math 
+
+def pbar(c,picturename):
+    df = c
+    col = list(df.columns)
+    pt.bar(df[col[0]], df[col[1]])
+    pt.xlabel(col[0])
+    pt.ylabel(col[1])
+    pt.xticks(rotation = 'vertical')
+    ylist = range(math.floor(min(df[col[1]])), max(df[col[1]]) + 1, 2)  
+    pt.yticks(ylist)
+    pt.savefig(f'{picturename}.png', bbox_inches = 'tight')
+    pt.close() 
+
+def pbarh(c,picturename):
+    df = c
+    col = list(df.columns)
+    pt.bar(df[col[0]], df[col[1]])
+    pt.xlabel(col[0])
+    pt.ylabel(col[1])
+    pt.xticks(rotation = 'vertical') 
+    pt.savefig(f'{picturename}.png', bbox_inches = 'tight') 
+    ylist = range(math.floor(min(df[col[1]])), max(df[col[1]]) + 1, 2)  
+    pt.yticks(ylist) 
+    pt.close()
+
+def pplolt(c, picturename):
+    df = c
+    col = list(df.columns)
+    pt.plot(df[col[0]], df[col[1]], marker = 'o')
+    pt.xlabel(col[0])
+    pt.ylabel(col[1])
+    pt.xticks(rotation = 'vertical')
+    ylist = range (math.floor(min(df[col[1]])),max(df[col[1]]) + 1 , 2) 
+    pt.yticks(ylist)
+    pt.savefig(f'{picturename}.png', bbox_inches = 'tight') 
+    pt.close()
+
+
+def ppie(c,picturename):
+    df = c
+    col = list(df.columns)
+    pt.pie(df[col[1]], labels = df[col[0]])
+    pt.savefig(f'{picturename}.png', bbox_inches = 'tight') 
+    pt.close()
+
